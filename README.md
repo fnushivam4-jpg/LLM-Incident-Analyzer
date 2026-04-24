@@ -42,34 +42,42 @@ The current flow is:
    pip install -r requirements.txt
    ```
 
-3. Copy `.env.example` to `.env` and set your OpenAI API key:
+3. Copy `.env.example` to `.env` and configure:
    ```bash
    copy .env.example .env
    ```
-   Then update `.env`:
+   Update `.env`:
    ```text
-   OPENAI_API_KEY=your_openai_api_key_here
-   OPENAI_MODEL=gpt-3.5-turbo
+   GEMINI_API_KEY=your_gemini_api_key_here
+   GEMINI_MODEL=gemini-1.5-small
    LOG_STORE_DIR=logs
    ```
 
-4. Generate sample logs:
+4. Get a Gemini API key:
+   - Sign up at https://makersuite.google.com/
+   - Create an API key in your dashboard
+   - Add it to your `.env` file
+
+5. Generate sample logs:
    ```bash
    python scripts/generate_logs.py
    ```
    This creates `logs/sample_logs.json` with example incidents.
 
-5. Start the Flask server:
+6. Start the Flask server:
    ```bash
    python backend/app.py
    ```
 
-6. Test the analysis endpoint:
-   ```bash
-   curl -X POST http://127.0.0.1:8000/analyze \
-     -H "Content-Type: application/json" \
-     -d '{"request_id": "<one-of-generated-request-ids>"}'
-   ```
+7. Open the web interface:
+   - Visit `http://127.0.0.1:8000/` in your browser
+   - Enter a `request_id` and click "Analyze"
+   - Or test the API directly:
+     ```bash
+     curl -X POST http://127.0.0.1:8000/analyze \
+       -H "Content-Type: application/json" \
+       -d '{"request_id": "<one-of-generated-request-ids>"}'
+     ```
 
 ---
 

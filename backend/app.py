@@ -2,19 +2,21 @@ import json
 import os
 
 from dotenv import load_dotenv
-from flask import Flask, jsonify, request
-import openai
+from flask import Flask, jsonify, render_template, request
+from google import genai
+from google.genai import types
 
 load_dotenv()
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-small")
 LOG_STORE_DIR = os.getenv("LOG_STORE_DIR", "logs")
-DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-3.5-turbo")
 
-if not OPENAI_API_KEY:
-    raise RuntimeError("Missing OPENAI_API_KEY in environment. Create a .env file with OPENAI_API_KEY=<your_key>")
+if not GEMINI_API_KEY:
+    raise RuntimeError("GEMINI_API_KEY must be set in .env")
 
-openai.api_key = OPENAI_API_KEY
+client = genai.Client(api_key=GEMINI_API_KEY)
+
 app = Flask(__name__)
 
 
@@ -66,24 +68,27 @@ def build_analysis_prompt(request_id: str, logs: list) -> str:
 
 
 def analyze_logs_with_llm(request_id: str, logs: list) -> dict:
-    """Send the prompt to OpenAI and return a structured analysis."""
+    """Send the prompt to Gemini and return a structured analysis."""
     prompt = build_analysis_prompt(request_id, logs)
-    response = openai.ChatCompletion.create(
-        model=DEFAULT_MODEL,
-        messages=[
-            {"role": "system", "content": "You are a backend incident debugging assistant."},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0.2,
-        max_tokens=500,
+    response = client.models.generate_content(
+        model=GEMINI_MODEL,
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            max_output_tokens=2048,
+        ),
     )
 
-    content = response.choices[0].message["content"].strip()
+    content = response.text
     return {
         "request_id": request_id,
         "analysis": content,
         "log_count": len(logs),
     }
+
+
+@app.route("/", methods=["GET"])
+def index():
+    return render_template("index.html")
 
 
 @app.route("/health", methods=["GET"])
