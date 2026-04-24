@@ -1,0 +1,152 @@
+[
+  {
+    "timestamp": "2026-04-23T16:00:46.093790Z",
+    "request_id": "c519ca13-be98-4ad4-9811-a829dcb90a93",
+    "service": "api-gateway",
+    "level": "INFO",
+    "message": "Received request",
+    "details": {
+      "path": "/checkout"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.094513Z",
+    "request_id": "c519ca13-be98-4ad4-9811-a829dcb90a93",
+    "service": "auth-service",
+    "level": "INFO",
+    "message": "Validated auth token",
+    "details": {
+      "user_id": 8370
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.094894Z",
+    "request_id": "c519ca13-be98-4ad4-9811-a829dcb90a93",
+    "service": "order-service",
+    "level": "INFO",
+    "message": "Order completed successfully",
+    "details": {
+      "order_id": 37797
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.094918Z",
+    "request_id": "c519ca13-be98-4ad4-9811-a829dcb90a93",
+    "service": "inventory-service",
+    "level": "INFO",
+    "message": "Inventory reserved",
+    "details": {
+      "item_id": 476
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.094930Z",
+    "request_id": "c519ca13-be98-4ad4-9811-a829dcb90a93",
+    "service": "db",
+    "level": "INFO",
+    "message": "DB update succeeded",
+    "details": {
+      "rows_affected": 1
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.094945Z",
+    "request_id": "3ebbeb2e-eb81-418e-b491-33266ff30033",
+    "service": "api-gateway",
+    "level": "INFO",
+    "message": "Received request",
+    "details": {
+      "path": "/checkout"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.094959Z",
+    "request_id": "3ebbeb2e-eb81-418e-b491-33266ff30033",
+    "service": "auth-service",
+    "level": "INFO",
+    "message": "Validated auth token",
+    "details": {
+      "user_id": 7786
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.094989Z",
+    "request_id": "3ebbeb2e-eb81-418e-b491-33266ff30033",
+    "service": "order-service",
+    "level": "INFO",
+    "message": "Order completed successfully",
+    "details": {
+      "order_id": 81910
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.095000Z",
+    "request_id": "3ebbeb2e-eb81-418e-b491-33266ff30033",
+    "service": "inventory-service",
+    "level": "INFO",
+    "message": "Inventory reserved",
+    "details": {
+      "item_id": 855
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.095008Z",
+    "request_id": "3ebbeb2e-eb81-418e-b491-33266ff30033",
+    "service": "db",
+    "level": "INFO",
+    "message": "DB update succeeded",
+    "details": {
+      "rows_affected": 1
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.095015Z",
+    "request_id": "669c4508-2ac9-4609-bc0a-5cbc8972bc18",
+    "service": "api-gateway",
+    "level": "INFO",
+    "message": "Received request",
+    "details": {
+      "path": "/checkout"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.095024Z",
+    "request_id": "669c4508-2ac9-4609-bc0a-5cbc8972bc18",
+    "service": "auth-service",
+    "level": "INFO",
+    "message": "Validated auth token",
+    "details": {
+      "user_id": 4484
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.095033Z",
+    "request_id": "669c4508-2ac9-4609-bc0a-5cbc8972bc18",
+    "service": "order-service",
+    "level": "INFO",
+    "message": "Order completed successfully",
+    "details": {
+      "order_id": 43609
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.095040Z",
+    "request_id": "669c4508-2ac9-4609-bc0a-5cbc8972bc18",
+    "service": "inventory-service",
+    "level": "INFO",
+    "message": "Inventory reserved",
+    "details": {
+      "item_id": 471
+    }
+  },
+  {
+    "timestamp": "2026-04-23T16:00:46.095047Z",
+    "request_id": "669c4508-2ac9-4609-bc0a-5cbc8972bc18",
+    "service": "db",
+    "level": "INFO",
+    "message": "DB update succeeded",
+    "details": {
+      "rows_affected": 1
+    }
+  }
+]
